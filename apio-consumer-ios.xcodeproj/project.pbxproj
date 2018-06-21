@@ -6,6 +6,15 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4A5530CF20DC3B8400E3CEBC /* Thing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5530CE20DC3B8400E3CEBC /* Thing.swift */; };
+		4A5530D120DC3D1900E3CEBC /* Relation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5530D020DC3D1900E3CEBC /* Relation.swift */; };
+		4A5530D320DC3E6700E3CEBC /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5530D220DC3E6700E3CEBC /* Operation.swift */; };
+		4A5530D520DC3F4A00E3CEBC /* OperationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5530D420DC3F4A00E3CEBC /* OperationForm.swift */; };
+		4A5530D720DC3F8F00E3CEBC /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5530D620DC3F8F00E3CEBC /* Property.swift */; };
+		4A5530D920DC411300E3CEBC /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5530D820DC411300E3CEBC /* Context.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		4A5530BF20DC2DD300E3CEBC /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -21,6 +30,12 @@
 /* Begin PBXFileReference section */
 		4A5530C120DC2DD300E3CEBC /* libapio-consumer-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libapio-consumer-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A5530CD20DC3B8400E3CEBC /* apio-consumer-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "apio-consumer-ios-Bridging-Header.h"; sourceTree = "<group>"; };
+		4A5530CE20DC3B8400E3CEBC /* Thing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thing.swift; sourceTree = "<group>"; };
+		4A5530D020DC3D1900E3CEBC /* Relation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relation.swift; sourceTree = "<group>"; };
+		4A5530D220DC3E6700E3CEBC /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		4A5530D420DC3F4A00E3CEBC /* OperationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationForm.swift; sourceTree = "<group>"; };
+		4A5530D620DC3F8F00E3CEBC /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
+		4A5530D820DC411300E3CEBC /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,9 +68,23 @@
 		4A5530CB20DC2E5D00E3CEBC /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				4A5530CC20DC3B0C00E3CEBC /* Model */,
 				4A5530CD20DC3B8400E3CEBC /* apio-consumer-ios-Bridging-Header.h */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		4A5530CC20DC3B0C00E3CEBC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4A5530D820DC411300E3CEBC /* Context.swift */,
+				4A5530D220DC3E6700E3CEBC /* Operation.swift */,
+				4A5530D420DC3F4A00E3CEBC /* OperationForm.swift */,
+				4A5530D620DC3F8F00E3CEBC /* Property.swift */,
+				4A5530D020DC3D1900E3CEBC /* Relation.swift */,
+				4A5530CE20DC3B8400E3CEBC /* Thing.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,6 +145,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A5530D720DC3F8F00E3CEBC /* Property.swift in Sources */,
+				4A5530CF20DC3B8400E3CEBC /* Thing.swift in Sources */,
+				4A5530D120DC3D1900E3CEBC /* Relation.swift in Sources */,
+				4A5530D920DC411300E3CEBC /* Context.swift in Sources */,
+				4A5530D320DC3E6700E3CEBC /* Operation.swift in Sources */,
+				4A5530D520DC3F4A00E3CEBC /* OperationForm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
