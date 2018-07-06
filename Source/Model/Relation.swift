@@ -14,4 +14,5 @@
 
 struct Relation {
 	let id: String
+	let thing: Thing?
 }

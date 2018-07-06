@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E49F77D20E577E100456C57 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E49F77C20E577E100456C57 /* Tests.swift */; };
+		1E49F77F20E577E100456C57 /* libapio-consumer-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5530C120DC2DD300E3CEBC /* libapio-consumer-ios.a */; };
+		1E7AC1CE20EE85D200CD3060 /* JsonLDParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E49F78520E57BF000456C57 /* JsonLDParser.swift */; };
 		4A5530CF20DC3B8400E3CEBC /* Thing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5530CE20DC3B8400E3CEBC /* Thing.swift */; };
 		4A5530D120DC3D1900E3CEBC /* Relation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5530D020DC3D1900E3CEBC /* Relation.swift */; };
 		4A5530D320DC3E6700E3CEBC /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5530D220DC3E6700E3CEBC /* Operation.swift */; };
@@ -14,6 +17,16 @@
 		4A5530D720DC3F8F00E3CEBC /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5530D620DC3F8F00E3CEBC /* Property.swift */; };
 		4A5530D920DC411300E3CEBC /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5530D820DC411300E3CEBC /* Context.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1E49F78020E577E100456C57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A5530B920DC2DD300E3CEBC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A5530C020DC2DD300E3CEBC;
+			remoteInfo = "apio-consumer-ios";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		4A5530BF20DC2DD300E3CEBC /* CopyFiles */ = {
@@ -28,6 +41,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1E49F77A20E577E100456C57 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E49F77C20E577E100456C57 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		1E49F77E20E577E100456C57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E49F78520E57BF000456C57 /* JsonLDParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonLDParser.swift; sourceTree = "<group>"; };
 		4A5530C120DC2DD300E3CEBC /* libapio-consumer-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libapio-consumer-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A5530CD20DC3B8400E3CEBC /* apio-consumer-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "apio-consumer-ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		4A5530CE20DC3B8400E3CEBC /* Thing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thing.swift; sourceTree = "<group>"; };
@@ -39,6 +56,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1E49F77720E577E100456C57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E49F77F20E577E100456C57 /* libapio-consumer-ios.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A5530BE20DC2DD300E3CEBC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -49,10 +74,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E49F77B20E577E100456C57 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1E49F77C20E577E100456C57 /* Tests.swift */,
+				1E49F77E20E577E100456C57 /* Info.plist */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		4A5530B820DC2DD300E3CEBC = {
 			isa = PBXGroup;
 			children = (
 				4A5530CB20DC2E5D00E3CEBC /* Source */,
+				1E49F77B20E577E100456C57 /* Tests */,
 				4A5530C220DC2DD300E3CEBC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				4A5530C120DC2DD300E3CEBC /* libapio-consumer-ios.a */,
+				1E49F77A20E577E100456C57 /* Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +106,7 @@
 			children = (
 				4A5530CC20DC3B0C00E3CEBC /* Model */,
 				4A5530CD20DC3B8400E3CEBC /* apio-consumer-ios-Bridging-Header.h */,
+				1E49F78520E57BF000456C57 /* JsonLDParser.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -90,6 +127,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1E49F77920E577E100456C57 /* Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E49F78220E577E100456C57 /* Build configuration list for PBXNativeTarget "Tests" */;
+			buildPhases = (
+				1E49F77620E577E100456C57 /* Sources */,
+				1E49F77720E577E100456C57 /* Frameworks */,
+				1E49F77820E577E100456C57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1E49F78120E577E100456C57 /* PBXTargetDependency */,
+			);
+			name = Tests;
+			productName = Tests;
+			productReference = 1E49F77A20E577E100456C57 /* Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		4A5530C020DC2DD300E3CEBC /* apio-consumer-ios */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A5530C820DC2DD300E3CEBC /* Build configuration list for PBXNativeTarget "apio-consumer-ios" */;
@@ -117,6 +172,9 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Allan Melo";
 				TargetAttributes = {
+					1E49F77920E577E100456C57 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
 					4A5530C020DC2DD300E3CEBC = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 0940;
@@ -136,16 +194,36 @@
 			projectRoot = "";
 			targets = (
 				4A5530C020DC2DD300E3CEBC /* apio-consumer-ios */,
+				1E49F77920E577E100456C57 /* Tests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		1E49F77820E577E100456C57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		1E49F77620E577E100456C57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E49F77D20E577E100456C57 /* Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A5530BD20DC2DD300E3CEBC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4A5530D720DC3F8F00E3CEBC /* Property.swift in Sources */,
+				1E7AC1CE20EE85D200CD3060 /* JsonLDParser.swift in Sources */,
 				4A5530CF20DC3B8400E3CEBC /* Thing.swift in Sources */,
 				4A5530D120DC3D1900E3CEBC /* Relation.swift in Sources */,
 				4A5530D920DC411300E3CEBC /* Context.swift in Sources */,
@@ -156,7 +234,53 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1E49F78120E577E100456C57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A5530C020DC2DD300E3CEBC /* apio-consumer-ios */;
+			targetProxy = 1E49F78020E577E100456C57 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		1E49F78320E577E100456C57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.liferay.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1E49F78420E577E100456C57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.liferay.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		4A5530C620DC2DD300E3CEBC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -313,6 +437,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1E49F78220E577E100456C57 /* Build configuration list for PBXNativeTarget "Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E49F78320E577E100456C57 /* Debug */,
+				1E49F78420E577E100456C57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4A5530BC20DC2DD300E3CEBC /* Build configuration list for PBXProject "apio-consumer-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

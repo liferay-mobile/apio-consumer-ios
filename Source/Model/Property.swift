@@ -13,7 +13,7 @@
 */
 
 struct Property {
-	let type: Type
+	let types: [String]
 	let name: String
 	let required: Bool
 }

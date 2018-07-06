@@ -12,12 +12,12 @@
 * details.
 */
 
-typealias Type = [String]
+
+//typealias Operations = <#type expression#>
 
 struct Thing {
 	let id: String
-	let type: Type
+	let types: [String]
 	let attributes: [String: Any]
-	let name: String?
-	var operations = [String: Operation]()
+	let operations: [String: Operation]
 }

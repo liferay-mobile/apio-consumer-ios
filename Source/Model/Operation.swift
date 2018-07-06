@@ -15,7 +15,8 @@
 struct Operation {
 	let id: String
 	let target: String
-	let type: Type
 	let method: String
-	var form: OperationForm?
+	let expects: String
+	let types: [String]
+	let form: OperationForm? = nil
 }

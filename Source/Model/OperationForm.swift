@@ -14,5 +14,7 @@
 
 struct OperationForm {
 	let id: String
+	let title: String
+	let description: String
 	var properties = [Property]()
 }
