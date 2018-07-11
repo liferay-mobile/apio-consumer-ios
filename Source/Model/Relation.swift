@@ -12,7 +12,7 @@
 * details.
 */
 
-struct Relation {
+struct Relation: Codable {
 	let id: String
 	let thing: Thing?
 }

@@ -12,7 +12,7 @@
 * details.
 */
 
-struct Property {
+struct Property: Codable {
 	let types: [String]
 	let name: String
 	let required: Bool

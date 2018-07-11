@@ -12,7 +12,7 @@
 * details.
 */
 
-struct Operation {
+struct Operation: Codable {
 	let id: String
 	let target: String
 	let method: String

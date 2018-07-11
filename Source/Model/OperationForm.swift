@@ -12,7 +12,7 @@
 * details.
 */
 
-struct OperationForm {
+struct OperationForm: Codable {
 	let id: String
 	let title: String
 	let description: String

@@ -10,6 +10,7 @@
 		1E49F77D20E577E100456C57 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E49F77C20E577E100456C57 /* Tests.swift */; };
 		1E49F77F20E577E100456C57 /* libapio-consumer-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5530C120DC2DD300E3CEBC /* libapio-consumer-ios.a */; };
 		1E7AC1CE20EE85D200CD3060 /* JsonLDParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E49F78520E57BF000456C57 /* JsonLDParser.swift */; };
+		4A1FB01D20F4E06E001D6F2B /* response-with-embbeded.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A1FB01C20F4E06E001D6F2B /* response-with-embbeded.json */; };
 		4A5530CF20DC3B8400E3CEBC /* Thing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5530CE20DC3B8400E3CEBC /* Thing.swift */; };
 		4A5530D120DC3D1900E3CEBC /* Relation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5530D020DC3D1900E3CEBC /* Relation.swift */; };
 		4A5530D320DC3E6700E3CEBC /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5530D220DC3E6700E3CEBC /* Operation.swift */; };
@@ -45,6 +46,7 @@
 		1E49F77C20E577E100456C57 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		1E49F77E20E577E100456C57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E49F78520E57BF000456C57 /* JsonLDParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonLDParser.swift; sourceTree = "<group>"; };
+		4A1FB01C20F4E06E001D6F2B /* response-with-embbeded.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "response-with-embbeded.json"; sourceTree = "<group>"; };
 		4A5530C120DC2DD300E3CEBC /* libapio-consumer-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libapio-consumer-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A5530CD20DC3B8400E3CEBC /* apio-consumer-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "apio-consumer-ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		4A5530CE20DC3B8400E3CEBC /* Thing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thing.swift; sourceTree = "<group>"; };
@@ -77,10 +79,27 @@
 		1E49F77B20E577E100456C57 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				4A1AD13020F40219008BDF9E /* Resources */,
 				1E49F77C20E577E100456C57 /* Tests.swift */,
 				1E49F77E20E577E100456C57 /* Info.plist */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		1E566DEF20FE6B3200C0E127 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				1E49F78520E57BF000456C57 /* JsonLDParser.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		4A1AD13020F40219008BDF9E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4A1FB01C20F4E06E001D6F2B /* response-with-embbeded.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		4A5530B820DC2DD300E3CEBC = {
@@ -104,9 +123,9 @@
 		4A5530CB20DC2E5D00E3CEBC /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				1E566DEF20FE6B3200C0E127 /* Util */,
 				4A5530CC20DC3B0C00E3CEBC /* Model */,
 				4A5530CD20DC3B8400E3CEBC /* apio-consumer-ios-Bridging-Header.h */,
-				1E49F78520E57BF000456C57 /* JsonLDParser.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -204,6 +223,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A1FB01D20F4E06E001D6F2B /* response-with-embbeded.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
