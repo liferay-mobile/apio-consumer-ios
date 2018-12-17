@@ -1,0 +1,175 @@
+{
+	"description": "Form Description Lorem Ipsum",
+	"name": "Form Lorem Ipsum",
+	"dateCreated": "2018-12-17T17:42Z",
+	"dateModified": "2018-12-17T17:47Z",
+	"defaultLanguage": "en_US",
+	"availableLanguages": [
+		"en-US"
+	],
+	"@type": [
+		"Form"
+	],
+	"@id": "http://localhost:8080/o/api/p/form/36805",
+	"operation": [
+		{
+			"target": "http://localhost:8080/o/api/c/form/36805/evaluate-context",
+			"expects": "http://localhost:8080/o/api/f/p/form/evaluate-context",
+			"method": "POST",
+			"@id": "_:form/evaluate-context",
+			"@type": [
+				"CreateAction",
+				"Operation"
+			]
+		},
+		{
+			"target": "http://localhost:8080/o/api/c/form/36805/fetch-latest-draft",
+			"method": "GET",
+			"@id": "_:form/fetch-latest-draft",
+			"@type": [
+				"Operation"
+			]
+		},
+		{
+			"target": "http://localhost:8080/o/api/c/form/36805/upload-file",
+			"expects": "http://localhost:8080/o/api/f/p/form/upload-file",
+			"method": "POST",
+			"@id": "_:form/upload-file",
+			"@type": [
+				"CreateAction",
+				"Operation"
+			]
+		}
+	],
+	"contentSpace": "http://localhost:8080/o/api/p/content-space/20126",
+	"@context": [
+		{
+			"contentSpace": {
+				"@type": "@id"
+			}
+		},
+		{
+			"creator": {
+				"@type": "@id"
+			}
+		},
+		{
+			"formRecords": {
+				"@type": "@id"
+			}
+		},
+		{
+			"@vocab": "http://schema.org/"
+		},
+		"https://www.w3.org/ns/hydra/core#"
+	],
+	"creator": "http://localhost:8080/o/api/p/user-account/20139",
+	"structure": {
+		"@id": "http://localhost:8080/o/api/p/form-structures/36802",
+		"description": "Form Description Lorem Ipsum",
+		"name": "Form Lorem Ipsum",
+		"dateCreated": "2018-12-17T17:42Z",
+		"dateModified": "2018-12-17T17:42Z",
+		"availableLanguages": [
+			"en-US"
+		],
+		"@type": [
+			"Structure"
+		],
+		"creator": "http://localhost:8080/o/api/p/user-account/20139",
+		"@context": [
+			{
+				"creator": {
+					"@type": "@id"
+				}
+			},
+			{
+				"contentSpace": {
+					"@type": "@id"
+				}
+			}
+		],
+		"contentSpace": "http://localhost:8080/o/api/p/content-space/20126",
+		"formPages": {
+			"totalItems": 1,
+			"manages": {
+				"property": "rdf:type",
+				"object": "schema:FormLayoutPage"
+			},
+			"member": [
+				{
+					"headline": "Page Lorem Ipsum",
+					"text": "Page Description Lorem Ipsum",
+					"@type": [
+						"FormLayoutPage"
+					],
+					"fields": {
+						"totalItems": 1,
+						"manages": {
+							"property": "rdf:type",
+							"object": "schema:FormField"
+						},
+						"member": [
+							{
+								"autocomplete": false,
+								"localizable": true,
+								"multiple": false,
+								"readOnly": false,
+								"repeatable": false,
+								"required": false,
+								"showLabel": true,
+								"hasFormRules": false,
+								"transient": false,
+								"label": "TextView Lorem Ipsum",
+								"tooltip": "TextView Lorem Ipsum",
+								"dataType": "string",
+								"displayStyle": "singleline",
+								"inputControl": "text",
+								"name": "TextViewLoremIpsum",
+								"@type": [
+									"FormField"
+								],
+								"validation": {
+									"@type": [
+										"FormFieldProperties"
+									]
+								},
+								"grid": {
+									"@type": [
+										"FormFieldProperties"
+									]
+								},
+								"options": {
+									"totalItems": 1,
+									"manages": {
+										"property": "rdf:type",
+										"object": "schema:FormFieldOptions"
+									},
+									"member": [
+										{
+											"label": "Option",
+											"value": "Option",
+											"@type": [
+												"FormFieldOptions"
+											]
+										}
+									],
+									"@type": [
+										"Collection"
+									]
+								}
+							}
+						],
+						"@type": [
+							"Collection"
+						]
+					}
+				}
+			],
+			"@type": [
+				"Collection"
+			]
+		}
+	},
+	"formRecords": "http://localhost:8080/o/api/p/form/36805/form-record"
+}

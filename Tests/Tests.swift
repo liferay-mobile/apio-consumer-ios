@@ -1,76 +1,20 @@
-//
-//  Tests.swift
-//  Tests
-//
-//  Created by Igor Matos  on 28/06/18.
-//  Copyright © 2018 Allan Melo. All rights reserved.
-//
-
-
+/**
+* Copyright (c) 2000-present Liferay, Inc. All rights reserved.
+*
+* This library is free software; you can redistribute it and/or modify it under
+* the terms of the GNU Lesser General Public License as published by the Free
+* Software Foundation; either version 2.1 of the License, or (at your option)
+* any later version.
+*
+* This library is distributed in the hope that it will be useful, but WITHOUT
+* ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+* FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+* details.
+*/
 import XCTest
 @testable import apio_consumer_ios
 
-class ApioConsumerTests: XCTestCase {
-//    
-//	let blogCollection = """
-//			{
-//			  "totalItems": 1,
-//			  "view": {
-//				"last": "http://screens.liferay.org.es/o/api/p/blogs?page=1&per_page=30",
-//				"@type": [
-//				  "PartialCollectionView"
-//				],
-//				"@id": "http://screens.liferay.org.es/o/api/p/blogs?page=1&per_page=30",
-//				"first": "http://screens.liferay.org.es/o/api/p/blogs?page=1&per_page=30"
-//			  },
-//			  "numberOfItems": 1,
-//			  "@type": [
-//				"Collection"
-//			  ],
-//			  "member": [
-//				{
-//				  "creator": "http://screens.liferay.org.es/o/api/p/people/57457",
-//				  "articleBody": "<p>My Content</p>",
-//				  "@type": [
-//					"BlogPosting"
-//				  ],
-//				  "author": "http://screens.liferay.org.es/o/api/p/people/57457",
-//				  "@context": {
-//					"creator": {
-//					  "@type": "@id"
-//					},
-//					"author": {
-//					  "@type": "@id"
-//					},
-//					"comment": {
-//					  "@type": "@id"
-//					},
-//					"aggregateRating": {
-//					  "@type": "@id"
-//					},
-//					"group": {
-//					  "@type": "@id"
-//					}
-//				  },
-//				  "alternativeHeadline": "My Subtitle",
-//				  "license": "https://creativecommons.org/licenses/by/4.0",
-//				  "modifiedDate": "2017-08-31T18:39:52+00:00",
-//				  "comment": "http://screens.liferay.org.es/o/api/p/comments?id=57499&type=blogs&filterName=assetType_id",
-//				  "@id": "http://screens.liferay.org.es/o/api/p/blogs/57499",
-//				  "aggregateRating": "http://screens.liferay.org.es/o/api/p/aggregate-ratings/com.liferay.apio.liferay.portal.identifier.ClassNameClassPKIdentifier@4d2042ba",
-//				  "headline": "My Title",
-//				  "fileFormat": "text/html",
-//				  "createDate": "2017-08-31T18:39:52+00:00",
-//				  "group": "http://screens.liferay.org.es/o/api/p/groups/57459"
-//				}
-//			  ],
-//			  "@id": "http://screens.liferay.org.es/o/api/p/blogs",
-//			  "@context": {
-//				"@vocab": "http://schema.org",
-//				"Collection": "http://www.w3.org/ns/hydra/pagination.jsonld"
-//			  }
-//			}
-//		"""
+class ApioConsumerTests: BaseTest {
 
 	let blogCollection = """
 			{
@@ -279,13 +223,10 @@ class ApioConsumerTests: XCTestCase {
 //    }
 //
 	
-	
 	func testParseResponseWithEmbedded() {
-		let responseWithEmbedded = loadJson("response-with-embbeded")
+		let responseWithEmbedded = loadJson("response-item-with-embbeded-structure")
 		let (things, embeddedthings) = JsonLDParser.parseThing(json: responseWithEmbedded)
 		
-		print("uowww blogs")
-		print(things)
 		
 		XCTAssertEqual(things.id, "https://apiosample.wedeploy.io/p/blog-postings")
 		
@@ -347,12 +288,4 @@ class ApioConsumerTests: XCTestCase {
 		XCTAssertEqual(viewThing.operations.count, 0)
 	}
 	
-	func loadJson(_ filename: String) -> [String: Any] {
-		let bundle = Bundle(for: type(of: self))
-		let path = bundle.path(forResource: filename, ofType: "json")!
-		let data = try! Data(contentsOf: URL(fileURLWithPath: path))
-		
-		return try! JSONSerialization.jsonObject(
-			with: data, options: []) as! [String : Any]
-	}
 }

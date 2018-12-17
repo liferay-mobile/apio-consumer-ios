@@ -1,0 +1,68 @@
+{
+	"totalItems": 1,
+	"numberOfItems": 1,
+	"view": {
+		"@id": "http://localhost:8080/o/api/p/content-space/20126/form?page=1&per_page=30",
+		"first": "http://localhost:8080/o/api/p/content-space/20126/form?page=1&per_page=30",
+		"last": "http://localhost:8080/o/api/p/content-space/20126/form?page=1&per_page=30",
+		"@type": [
+			"PartialCollectionView"
+		]
+	},
+	"@id": "http://localhost:8080/o/api/p/content-space/20126/form",
+	"member": [
+		{
+			"description": "Form Description Lorem Ipsum",
+			"name": "Form Lorem Ipsum",
+			"dateCreated": "2018-12-17T17:42Z",
+			"dateModified": "2018-12-17T17:43Z",
+			"defaultLanguage": "en_US",
+			"availableLanguages": [
+				"en-US"
+			],
+			"@type": [
+				"Form"
+			],
+			"@id": "http://localhost:8080/o/api/p/form/36805",
+			"contentSpace": "http://localhost:8080/o/api/p/content-space/20126",
+			"@context": [
+				{
+					"contentSpace": {
+						"@type": "@id"
+					}
+				},
+				{
+					"creator": {
+						"@type": "@id"
+					}
+				},
+				{
+					"structure": {
+						"@type": "@id"
+					}
+				},
+				{
+					"formRecords": {
+						"@type": "@id"
+					}
+				}
+			],
+			"creator": "http://localhost:8080/o/api/p/user-account/20139",
+			"structure": "http://localhost:8080/o/api/p/form-structures/36802",
+			"formRecords": "http://localhost:8080/o/api/p/form/36805/form-record"
+		}
+	],
+	"manages": {
+		"property": "rdf:type",
+		"object": "schema:Form"
+	},
+	"@context": [
+		{
+			"@vocab": "http://schema.org/"
+		},
+		"https://www.w3.org/ns/hydra/core#"
+	],
+	"@type": [
+		"Collection"
+	]
+}
