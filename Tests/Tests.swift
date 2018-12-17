@@ -282,7 +282,7 @@ class ApioConsumerTests: XCTestCase {
 	
 	func testParseResponseWithEmbedded() {
 		let responseWithEmbedded = loadJson("response-with-embbeded")
-		let (things, embeddedthings) = JsonLdParser.parseThing(json: responseWithEmbedded)
+		let (things, embeddedthings) = JsonLDParser.parseThing(json: responseWithEmbedded)
 		
 		print("uowww blogs")
 		print(things)
