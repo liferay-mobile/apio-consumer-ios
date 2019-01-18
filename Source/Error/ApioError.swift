@@ -18,3 +18,12 @@
 enum ApioError : Error {
     case thingNotFound
 }
+
+extension ApioError {
+    func getErrorMessage() -> String {
+        switch self {
+        case .thingNotFound:
+            return "Thing not found"
+        }
+    }
+}
