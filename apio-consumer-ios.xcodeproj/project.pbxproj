@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E49F77D20E577E100456C57 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E49F77C20E577E100456C57 /* Tests.swift */; };
 		1E49F77F20E577E100456C57 /* libapio-consumer-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5530C120DC2DD300E3CEBC /* libapio-consumer-ios.a */; };
 		1E7AC1CE20EE85D200CD3060 /* JsonLDParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E49F78520E57BF000456C57 /* JsonLDParser.swift */; };
 		239BFB9A21C814CA00C7ED7C /* BaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239BFB9921C814CA00C7ED7C /* BaseTest.swift */; };
@@ -22,6 +21,7 @@
 		4A5530D520DC3F4A00E3CEBC /* OperationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5530D420DC3F4A00E3CEBC /* OperationForm.swift */; };
 		4A5530D720DC3F8F00E3CEBC /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5530D620DC3F8F00E3CEBC /* Property.swift */; };
 		4A5530D920DC411300E3CEBC /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5530D820DC411300E3CEBC /* Context.swift */; };
+		B24B001521EFC25500FD7185 /* JsonLDParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24B001421EFC25500FD7185 /* JsonLDParserTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +49,6 @@
 /* Begin PBXFileReference section */
 		16C2EAAA4FE30D5199080703 /* Pods_apio_consumer_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_apio_consumer_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E49F77A20E577E100456C57 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1E49F77C20E577E100456C57 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		1E49F77E20E577E100456C57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E49F78520E57BF000456C57 /* JsonLDParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonLDParser.swift; sourceTree = "<group>"; };
 		239BFB9921C814CA00C7ED7C /* BaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTest.swift; sourceTree = "<group>"; };
@@ -67,6 +66,7 @@
 		4A5530D620DC3F8F00E3CEBC /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		4A5530D820DC411300E3CEBC /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		6E52B00C6B9ACE1D560531FB /* Pods-apio-consumer-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-apio-consumer-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-apio-consumer-ios/Pods-apio-consumer-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		B24B001421EFC25500FD7185 /* JsonLDParserTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonLDParserTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +94,8 @@
 			children = (
 				4A1AD13020F40219008BDF9E /* Resources */,
 				239BFB9921C814CA00C7ED7C /* BaseTest.swift */,
-				1E49F77C20E577E100456C57 /* Tests.swift */,
 				1E49F77E20E577E100456C57 /* Info.plist */,
+				B24B001421EFC25500FD7185 /* JsonLDParserTest.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -306,8 +306,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B24B001521EFC25500FD7185 /* JsonLDParserTest.swift in Sources */,
 				239BFB9A21C814CA00C7ED7C /* BaseTest.swift in Sources */,
-				1E49F77D20E577E100456C57 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

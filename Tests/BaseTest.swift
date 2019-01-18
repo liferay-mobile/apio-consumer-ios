@@ -18,6 +18,9 @@ import XCTest
 * @author Victor Oliveira
 */
 class BaseTest: XCTestCase {
+    
+    typealias Dict = [String : Any?]
+    typealias Attribute = [String : Any]
 
 	func loadJson(_ filename: String) -> [String: Any] {
 		let bundle = Bundle(for: type(of: self))
