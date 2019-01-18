@@ -103,7 +103,6 @@
 		1E566DEF20FE6B3200C0E127 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				1E49F78520E57BF000456C57 /* JsonLDParser.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -149,6 +148,7 @@
 		4A5530CB20DC2E5D00E3CEBC /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				B29F148F21F2730E00556DA6 /* Parser */,
 				3A13EF1B21F1100900317D69 /* Error */,
 				1E566DEF20FE6B3200C0E127 /* Util */,
 				4A5530CC20DC3B0C00E3CEBC /* Model */,
@@ -168,6 +168,14 @@
 				4A5530CE20DC3B8400E3CEBC /* Thing.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B29F148F21F2730E00556DA6 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				1E49F78520E57BF000456C57 /* JsonLDParser.swift */,
+			);
+			path = Parser;
 			sourceTree = "<group>";
 		};
 		BA2CDB2A6BB355C2F6D33370 /* Pods */ = {
