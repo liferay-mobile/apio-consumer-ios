@@ -1,1 +1,5 @@
-xcuserdata/
+.DS_Store
+*.xccheckout
+xcuserdata
+report.xml
+/Pods
