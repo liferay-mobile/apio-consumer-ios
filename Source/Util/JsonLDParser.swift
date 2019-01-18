@@ -132,11 +132,8 @@ class JsonLDParser {
 		let filteredJson = filterProperties(json: json, properties: ["@id", "@context", "@type"])
 		
 		let result = filteredJson.keys
-			.reduce(into: ["attributes": Dict() , "things": Dict()], { acc, key in
-				acc = 
-					flatten(
-						context: context, foldedAttributes: &acc, 
-						attributes: [key: json[key] as? Attributes ?? [:]])
+			.reduce(into: ["attributes": Dict(), "things": Dict()], { acc, key in
+                acc = flatten(context: context, foldedAttributes: &acc, attribute: [key : json[key] as Any] as Attribute)
 			})
 		
 		let attributes = result["attributes"] as? Attributes ?? [:]
