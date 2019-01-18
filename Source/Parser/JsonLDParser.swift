@@ -131,11 +131,11 @@ class JsonLDParser {
 	static func parseAttributes(json: Dict, context: Context) -> (Attributes, Dict) {
 		let filteredJson = filterProperties(json: json, properties: ["@id", "@context", "@type"])
 		
-		let result = filteredJson.keys
-			.reduce(into: ["attributes": Dict(), "things": Dict()], { acc, key in
-                acc = flatten(context: context, foldedAttributes: &acc, attribute: [key : json[key] as Any] as Attribute)
-			})
-		
+        let result = filteredJson.keys
+            .reduce(into: ["attributes": Dict(), "things": Dict()], { acc, key in
+                acc = flatten(context: context, foldedAttributes: &acc, attributes: [key : json[key] as Any] as Attributes)
+            })
+        
 		let attributes = result["attributes"] as? Attributes ?? [:]
 		let things = result["things"] as? Dict ??  [:]
 		
