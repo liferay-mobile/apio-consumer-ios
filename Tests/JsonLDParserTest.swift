@@ -20,8 +20,8 @@ import XCTest
 class JsonLDParserTest : BaseTest {
     
     private var thing: Thing!
-    private var embeddedThings: Dict!
-    private var attributes: Attribute!
+    private var embeddedThings: OptionalAttributes!
+    private var attributes: Attributes!
     
     override func setUp() {
         super.setUp()
@@ -81,9 +81,9 @@ class JsonLDParserTest : BaseTest {
     func testShouldGetStructureAsRelationAndNavigateIntoTheFieldsLevel() {
         let relation = attributes["structure"] as! Relation
         let relationAttributes = relation.thing?.attributes
-        let relationAttributeValue = relationAttributes?["formPages"] as! Dict
+        let relationAttributeValue = relationAttributes?["formPages"] as! OptionalAttributes
         let relationMember = relationAttributeValue["member"] as! [[String:Any?]]
-        let relationFields = relationMember[0]["fields"] as! Dict
+        let relationFields = relationMember[0]["fields"] as! OptionalAttributes
         let fieldsMember = relationFields["member"] as! [[String:Any?]]
         let field = fieldsMember[0]
         

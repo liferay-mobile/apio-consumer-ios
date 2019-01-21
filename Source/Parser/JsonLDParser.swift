@@ -20,7 +20,7 @@ import Foundation
 */
 class JsonLDParser {
 	
-	typealias Dict = [String: Any?]
+	typealias OptionalAttributes = [String: Any?]
 	typealias Attributes = [String: Any]
 	typealias Context = [Any]
 	
@@ -38,10 +38,12 @@ class JsonLDParser {
 		return context ?? parentContext ?? [] 
 	}
 	
-	static func filterProperties(json: Dict, properties: [String]) -> Dict {
+	static func filterProperties(
+		json: OptionalAttributes, properties: [String]) -> OptionalAttributes {
+		
 		let keys = json.keys.filter { !properties.contains($0) }
 		
-		let filteredProperties = keys.reduce(Dict(), { acc, key in 
+		let filteredProperties = keys.reduce(OptionalAttributes(), { acc, key in
 			var acc = acc
 			
 			guard let value = json[key] else {
@@ -57,19 +59,20 @@ class JsonLDParser {
 	}
 	
 	static func flatten(
-		context: Context, foldedAttributes: inout Dict, attributes: Attributes) -> Dict {
+		context: Context, foldedAttributes: inout OptionalAttributes, attributes: Attributes)
+		-> OptionalAttributes {
 		
 		let key = attributes.keys.first ?? ""
 		let value = attributes.values.first ?? ""
 		
-		var attributes = foldedAttributes["attributes"] as? Dict ?? Dict() 
-		var things = foldedAttributes["things"] as? Dict ?? Dict()
+		var attributes = foldedAttributes["attributes"] as? OptionalAttributes ?? OptionalAttributes()
+		var things = foldedAttributes["things"] as? OptionalAttributes ?? OptionalAttributes()
 		
-		if let value = value as? Dict {
+		if let value = value as? OptionalAttributes {
 			parseObject(key: key, value: value, context: context, attributes: &attributes, 
 						things: &things)
 		}
-		else if let value = value as? [[String: Any]] {
+		else if let value = value as? [Attributes] {
 			parseObjectArray(key: key, value: value, context: context, attributes: &attributes, 
 							 things: &things)
 		}
@@ -91,7 +94,7 @@ class JsonLDParser {
 	
 	static func getVocab(context: Context) -> String? {
 		return context.first { item in
-			if let item = item as? [String: Any], item.keys.contains("@vocab") {
+			if let item = item as? Attributes, item.keys.contains("@vocab") {
 				return true
 			}
 			
@@ -104,7 +107,7 @@ class JsonLDParser {
 	}
 	
 	static func isEmbeddedThingArray(value: Context) -> Bool {
-		if let firstPair = value.first as? [String: Any] {
+		if let firstPair = value.first as? Attributes {
 			return firstPair["@id"] != nil
 		}
 		
@@ -117,8 +120,8 @@ class JsonLDParser {
 		}
 		
 		return context.first { item in
-			if let dict = item as? Dict, 
-				let value = dict[name] as? Dict, 
+			if let attrs = item as? OptionalAttributes,
+				let value = attrs[name] as? OptionalAttributes,
 				let type = value["@type"] as? String, type == "@id" {
 				
 				return true
@@ -128,22 +131,24 @@ class JsonLDParser {
 			} != nil
 	}
 	
-	static func parseAttributes(json: Dict, context: Context) -> (Attributes, Dict) {
+	static func parseAttributes(
+		json: OptionalAttributes, context: Context) -> (Attributes, OptionalAttributes) {
 		let filteredJson = filterProperties(json: json, properties: ["@id", "@context", "@type"])
 		
         let result = filteredJson.keys
-            .reduce(into: ["attributes": Dict(), "things": Dict()], { acc, key in
+            .reduce(
+				into: ["attributes": OptionalAttributes(), "things": OptionalAttributes()], { acc, key in
                 acc = flatten(context: context, foldedAttributes: &acc, attributes: [key : json[key] as Any] as Attributes)
             })
         
 		let attributes = result["attributes"] as? Attributes ?? [:]
-		let things = result["things"] as? Dict ??  [:]
+		let things = result["things"] as? OptionalAttributes ??  [:]
 		
 		return (attributes, things)
 	}
 	
 	static func parseObject(
-		key: String, value: Dict, context: Context, attributes: inout Dict, things: inout Dict) {
+		key: String, value: OptionalAttributes, context: Context, attributes: inout OptionalAttributes, things: inout OptionalAttributes) {
 		
 		if (value.keys.contains("@id")) {
 			let (thing, embbededThings) = parseThing(json: value, parentContext: context)
@@ -169,10 +174,10 @@ class JsonLDParser {
 	}
 	
 	static func parseObjectArray(
-		key: String, value: Context, context: Context, attributes: inout Dict, things: inout Dict) {
+		key: String, value: Context, context: Context, attributes: inout OptionalAttributes, things: inout OptionalAttributes) {
 
 		if (isEmbeddedThingArray(value: value)) {
-			let collection = value.map { parseThing(json: $0 as? Dict ?? [:]) }
+			let collection = value.map { parseThing(json: $0 as? OptionalAttributes ?? [:]) }
 
 			var relations = [Relation]()
 			
@@ -192,9 +197,9 @@ class JsonLDParser {
 		}
 		else {
 			let collection = 
-					value.map { parseAttributes(json: $0 as? Dict ?? [:], context: context) }
+					value.map { parseAttributes(json: $0 as? OptionalAttributes ?? [:], context: context) }
 			
-			var attributesList = [Dict]()
+			var attributesList = [OptionalAttributes]()
 			
 			for (embeddedAttributes, embeddedThings) in collection {
 				attributesList.append(embeddedAttributes)
@@ -208,8 +213,8 @@ class JsonLDParser {
 		}
 	}
 	
-	static func parseOperations(json: Dict) -> [String: Operation] {
-		let operationsJson = json["operation"] as? [Dict] ?? [] 
+	static func parseOperations(json: OptionalAttributes) -> [String: Operation] {
+		let operationsJson = json["operation"] as? [OptionalAttributes] ?? []
 		
 		let operations = operationsJson.map { operationJson -> Operation in
 			let id = operationJson["@id"] as? String ?? ""
@@ -226,7 +231,7 @@ class JsonLDParser {
 		}		
 	}
 	
-	static func parseThing(json: Dict, parentContext: Context? = nil) -> (Thing, Dict) {
+	static func parseThing(json: OptionalAttributes, parentContext: Context? = nil) -> (Thing, OptionalAttributes) {
 		let id = json["@id"] as? String ?? ""
 		let types = parseType(json["@type"] ?? nil)
 		let context = 
