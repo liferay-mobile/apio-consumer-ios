@@ -36,38 +36,44 @@ class JsonLDParserTest : BaseTest {
     
     func testShouldGetThingOperations() {
         let operations = thing.operations
-        
-        var typesOperation = operations["_:form/evaluate-context"]?.types
-        XCTAssertEqual(operations["_:form/evaluate-context"]?.id, "_:form/evaluate-context")
-        XCTAssertEqual(operations["_:form/evaluate-context"]?.method, "POST")
-        XCTAssertEqual(operations["_:form/evaluate-context"]?.target, "http://localhost:8080/o/api/form/37115/evaluate-context")
-        XCTAssertEqual(operations["_:form/evaluate-context"]?.expects, "")
-        XCTAssertEqual(typesOperation?.first, "Operation")
-        
-        XCTAssertEqual(operations["_:form/fetch-latest-draft"]?.id, "_:form/fetch-latest-draft")
-        XCTAssertEqual(operations["_:form/fetch-latest-draft"]?.method, "GET")
-        XCTAssertEqual(operations["_:form/fetch-latest-draft"]?.target, "http://localhost:8080/o/api/form/37115/fetch-latest-draft")
-        typesOperation = operations["_:form/fetch-latest-draft"]?.types
-        XCTAssertEqual(typesOperation?.first, "Operation")
-        
-        typesOperation = operations["_:form/retrieve"]?.types
-        XCTAssertEqual(operations["_:form/retrieve"]?.id, "_:form/retrieve")
-        XCTAssertEqual(operations["_:form/retrieve"]?.method, "GET")
-        XCTAssertEqual(operations["_:form/retrieve"]?.target, "http://localhost:8080/o/api/form/37115")
-        XCTAssertEqual(typesOperation?.first, "Operation")
-        
-        XCTAssertEqual(operations["_:form/upload-file"]?.id, "_:form/upload-file")
-        XCTAssertEqual(operations["_:form/upload-file"]?.method, "POST")
-        XCTAssertEqual(operations["_:form/upload-file"]?.target, "http://localhost:8080/o/api/form/37115/upload-file")
-        XCTAssertEqual(operations["_:form/upload-file"]?.expects, "")
-        typesOperation = operations["_:form/upload-file"]?.types
-        XCTAssertEqual(typesOperation?.first, "Operation")
-        
-        XCTAssertEqual(thing.operations.count, 4)
+		
+		if let evaluateContext = operations["_:form/evaluate-context"],
+			let fetchLatestDraft = operations["_:form/fetch-latest-draft"],
+			let retrieve = operations["_:form/retrieve"],
+			let uploadFile = operations["_:form/upload-file"] {
+			
+			XCTAssertEqual(evaluateContext.id, "_:form/evaluate-context")
+			XCTAssertEqual(evaluateContext.method, "POST")
+			XCTAssertEqual(evaluateContext.target, "http://localhost:8080/o/api/form/37115/evaluate-context")
+			XCTAssertEqual(evaluateContext.expects, "")
+			XCTAssertEqual(evaluateContext.types.first, "Operation")
+			
+			XCTAssertEqual(fetchLatestDraft.id, "_:form/fetch-latest-draft")
+			XCTAssertEqual(fetchLatestDraft.method, "GET")
+			XCTAssertEqual(fetchLatestDraft.target, "http://localhost:8080/o/api/form/37115/fetch-latest-draft")
+			XCTAssertEqual(fetchLatestDraft.types.first, "Operation")
+			
+			XCTAssertEqual(retrieve.id, "_:form/retrieve")
+			XCTAssertEqual(retrieve.method, "GET")
+			XCTAssertEqual(retrieve.target, "http://localhost:8080/o/api/form/37115")
+			XCTAssertEqual(retrieve.types.first, "Operation")
+			
+			XCTAssertEqual(uploadFile.id, "_:form/upload-file")
+			XCTAssertEqual(uploadFile.method, "POST")
+			XCTAssertEqual(uploadFile.target, "http://localhost:8080/o/api/form/37115/upload-file")
+			XCTAssertEqual(uploadFile.expects, "")
+			XCTAssertEqual(uploadFile.types.first, "Operation")
+			
+			XCTAssertEqual(thing.operations.count, 4)
+			
+		} else {
+			XCTFail()
+		}
+
     }
     
     func testShouldGetFieldProperty() {
-        let attributes = self.attributes as Attribute
+        let attributes = self.attributes as Attributes
         
         var value = attributes["dateCreated"] as! String
         XCTAssertEqual(value, "2019-01-09T11:52Z")
@@ -81,16 +87,14 @@ class JsonLDParserTest : BaseTest {
     func testShouldGetStructureAsRelationAndNavigateIntoTheFieldsLevel() {
         let relation = attributes["structure"] as! Relation
         let relationAttributes = relation.thing?.attributes
-        let relationAttributeValue = relationAttributes?["formPages"] as! OptionalAttributes
-        let relationMember = relationAttributeValue["member"] as! [[String:Any?]]
+        let relationAttributeFormPages = relationAttributes?["formPages"] as! OptionalAttributes
+        let relationMember = relationAttributeFormPages["member"] as! [OptionalAttributes]
         let relationFields = relationMember[0]["fields"] as! OptionalAttributes
         let fieldsMember = relationFields["member"] as! [[String:Any?]]
         let field = fieldsMember[0]
         
         XCTAssertEqual(relation.id, "http://localhost:8080/o/api/form-structures/37112")
-        
-        let fieldValue = field["label"] as! String
-        XCTAssertEqual(fieldValue, "Text Field")
+        XCTAssertEqual(field["label"] as! String, "Text Field")
     }
 
     func testShouldParseNestedArray() {
