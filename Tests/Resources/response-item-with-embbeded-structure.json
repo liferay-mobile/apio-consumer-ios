@@ -62,6 +62,9 @@
                 "@type": "@id"
             }
         },
+        {
+            "@vocab": "http://schema.org/"
+        },
         "https://www.w3.org/ns/hydra/core#"
     ],
     "creator": "http://localhost:8080/o/api/user-account/20140",
