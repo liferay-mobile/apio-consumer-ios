@@ -22,19 +22,38 @@ class JsonLDParserTest : BaseTest {
     private var thing: Thing!
     private var embeddedThings: OptionalAttributes!
     private var attributes: Attributes!
+    private var responseWithEmbedded: [String : Any]!
     
-    override func setUp() {
+    func failureVocabSetUp() {
         super.setUp()
         
-        let responseWithEmbedded = loadJson("response-item-with-embbeded-structure")
-        let (thing, embeddedThings) = JsonLDParser.parseThing(json: responseWithEmbedded)
+        responseWithEmbedded = loadJson("response-item-with-embbeded-structure-vocab-failure")
+    }
+    
+    func successSetUp() {
+        super.setUp()
         
-        self.thing = thing
-        self.embeddedThings = embeddedThings
-        self.attributes = thing.attributes
+        do {
+            responseWithEmbedded = loadJson("response-item-with-embbeded-structure")
+            let (thing, embeddedThings) = try JsonLDParser.parseThing(json: responseWithEmbedded)
+            
+            self.thing = thing
+            self.embeddedThings = embeddedThings
+            self.attributes = thing.attributes
+        } catch {
+            XCTFail()
+        }
+    }
+    
+    func testShouldThrowExceptionForEmptyVocab() {
+        failureVocabSetUp()
+        
+        XCTAssertThrowsError(try JsonLDParser.parseThing(json: self.responseWithEmbedded, parentContext: nil))
     }
     
     func testShouldGetThingOperations() {
+        successSetUp()
+        
         let operations = thing.operations
 		
 		if let evaluateContext = operations["_:form/evaluate-context"],
@@ -73,6 +92,8 @@ class JsonLDParserTest : BaseTest {
     }
     
     func testShouldGetFieldProperty() {
+        successSetUp()
+        
         let attributes = self.attributes as Attributes
         
         var value = attributes["dateCreated"] as! String
@@ -85,6 +106,8 @@ class JsonLDParserTest : BaseTest {
     }
     
     func testShouldGetStructureAsRelationAndNavigateIntoTheFieldsLevel() {
+        successSetUp()
+        
         let relation = attributes["structure"] as! Relation
         let relationAttributes = relation.thing?.attributes
         let relationAttributeFormPages = relationAttributes?["formPages"] as! OptionalAttributes
@@ -98,20 +121,28 @@ class JsonLDParserTest : BaseTest {
     }
 
     func testShouldParseNestedArray() {
+        successSetUp()
+        
         XCTAssertEqual(thing.attributes["availableLanguages"] as! [String], ["en-US", "pt-BR"])
     }
     
     func testShouldReplaceIdWithRelation() {
+        successSetUp()
+        
         let structureRelation = thing.attributes["structure"]
         
         XCTAssertTrue(structureRelation is Relation)
     }
     
     func testShouldReturnEmbeddedThingsInSeparetedArray() {
+        successSetUp()
+        
         XCTAssertEqual(embeddedThings.count, 6)
     }
     
     func testShouldReturnEmbeddedThingsWithSameIdFoundedInRelations() {
+        successSetUp()
+        
         let structureRelation = thing.attributes["structure"] as! Relation
         let embeddedStructureRelation = embeddedThings[structureRelation.id] as! Thing
         
@@ -119,6 +150,8 @@ class JsonLDParserTest : BaseTest {
     }
     
     func testShouldParseThing() {
+        successSetUp()
+        
         XCTAssertEqual(thing.id, "http://localhost:8080/o/api/form/37115")
         XCTAssertEqual(thing.types, ["Form"])
         XCTAssertEqual(attributes["name"] as! String, "Parse Form")
