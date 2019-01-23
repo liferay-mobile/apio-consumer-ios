@@ -16,14 +16,33 @@
  * @author Paulo Cruz
  */
 enum ApioError : Error {
+    case cantParseToThing
+    case emptyVocab
+    case invalidRequestUrl
+    case requestFailedException(statusCode: Int, title: String, description: String?)
     case thingNotFound
+    case thingWithoutOperation(thingId: String, operationId: String)
 }
 
 extension ApioError {
     func getErrorMessage() -> String {
         switch self {
+        case .cantParseToThing:
+            return "Can't parse to thing"
+        case .emptyVocab:
+            return "Empty vocab"
+        case .invalidRequestUrl:
+            return "Invalid request URL"
+        case .requestFailedException(_, title: let title, description: let description):
+            guard let description = description else {
+                return "\(title)"
+            }
+            
+            return "\(title): \(description)"
         case .thingNotFound:
             return "Thing not found"
+        case .thingWithoutOperation(thingId: let thingId, operationId: let operationId):
+            return "Thing \(thingId) doesn't have the operation \(operationId)"
         }
     }
 }
