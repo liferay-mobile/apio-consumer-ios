@@ -1,0 +1,185 @@
+{
+    "name": "Parse Form",
+    "dateCreated": "2019-01-09T11:52Z",
+    "dateModified": "2019-01-09T11:52Z",
+    "defaultLanguage": "en_US",
+    "availableLanguages": [
+        "en-US",
+        "pt-BR"
+    ],
+    "@type": [
+        "Form"
+    ],
+    "@id": "http://localhost:8080/o/api/form/37115",
+    "operation": [
+        {
+            "target": "http://localhost:8080/o/api/form/37115",
+            "method": "GET",
+            "@id": "_:form/retrieve",
+            "@type": [
+                "Operation"
+            ]
+        },
+        {
+            "target": "http://localhost:8080/o/api/form/37115/evaluate-context",
+            "method": "POST",
+            "@id": "_:form/evaluate-context",
+            "@type": [
+                "Operation"
+            ]
+        },
+        {
+            "target": "http://localhost:8080/o/api/form/37115/fetch-latest-draft",
+            "method": "GET",
+            "@id": "_:form/fetch-latest-draft",
+            "@type": [
+                "Operation"
+            ]
+        },
+        {
+            "target": "http://localhost:8080/o/api/form/37115/upload-file",
+            "method": "POST",
+            "@id": "_:form/upload-file",
+            "@type": [
+                "Operation"
+            ]
+        }
+    ],
+    "contentSpace": "http://localhost:8080/o/api/content-space/20127",
+    "@context": [
+        {
+            "contentSpace": {
+                "@type": "@id"
+            }
+        },
+        {
+            "creator": {
+                "@type": "@id"
+            }
+        },
+        {
+            "formRecords": {
+                "@type": "@id"
+            }
+        },
+        {
+            "@vocab": "http://schema.org/"
+        },
+        "https://www.w3.org/ns/hydra/core#"
+    ],
+    "creator": "http://localhost:8080/o/api/user-account/20140",
+    "structure": {
+        "@id": "http://localhost:8080/o/api/form-structures/37112",
+        "name": "Parse Form",
+        "dateCreated": "2019-01-09T11:52Z",
+        "dateModified": "2019-01-09T11:52Z",
+        "availableLanguages": [
+            "en-US",
+            "pt-BR"
+        ],
+        "@type": [
+            "Structure"
+        ],
+        "operation": [
+            {
+                "method": "GET",
+                "@id": "_:form-structures/retrieve",
+                "@type": [
+                    "Operation"
+                ]
+            }
+        ],
+        "creator": "http://localhost:8080/o/api/user-account/20140",
+        "@context": [
+            {
+                "creator": {
+                    "@type": "@id"
+                }
+            },
+            {
+                "contentSpace": {
+                    "@type": "@id"
+                }
+            }
+        ],
+        "contentSpace": "http://localhost:8080/o/api/content-space/20127",
+        "formPages": {
+            "totalItems": 1,
+            "manages": {
+                "property": "rdf:type",
+                "object": "schema:FormLayoutPage"
+            },
+            "member": [
+                {
+                    "@type": [
+                        "FormLayoutPage"
+                    ],
+                    "fields": {
+                        "totalItems": 1,
+                        "manages": {
+                            "property": "rdf:type",
+                            "object": "schema:FormField"
+                        },
+                        "member": [
+                            {
+                                "autocomplete": false,
+                                "localizable": true,
+                                "multiple": false,
+                                "readOnly": false,
+                                "repeatable": false,
+                                "required": false,
+                                "showLabel": true,
+                                "hasFormRules": false,
+                                "transient": false,
+                                "label": "Text Field",
+                                "dataType": "string",
+                                "displayStyle": "singleline",
+                                "inputControl": "text",
+                                "name": "TextField",
+                                "@type": [
+                                    "FormField"
+                                ],
+                                "validation": {
+                                    "@type": [
+                                        "FormFieldProperties"
+                                    ]
+                                },
+                                "grid": {
+                                    "@type": [
+                                        "FormFieldProperties"
+                                    ]
+                                },
+                                "options": {
+                                    "totalItems": 1,
+                                    "manages": {
+                                        "property": "rdf:type",
+                                        "object": "schema:FormFieldOptions"
+                                    },
+                                    "member": [
+                                        {
+                                            "label": "Option",
+                                            "value": "Option",
+                                            "@type": [
+                                                "FormFieldOptions"
+                                            ]
+                                        }
+                                    ],
+                                    "@type": [
+                                        "Collection"
+                                    ]
+                                }
+                            }
+                        ],
+                        "@type": [
+                            "Collection"
+                        ]
+                    }
+                }
+            ],
+            "@type": [
+                "Collection"
+            ]
+        }
+    },
+    "formRecords": "http://localhost:8080/o/api/form/37115/form-record"
+}
